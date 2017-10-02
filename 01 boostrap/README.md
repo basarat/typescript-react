@@ -70,6 +70,7 @@ Add a tsconfig.json
 ```json
 {
   "compilerOptions": {
+    "sourceMap": true,
     "target": "es5",
     "jsx": "react"
   },
@@ -92,5 +93,3 @@ ReactDOM.render(<div>Hello world</div>, document.getElementById('root'));
 That's it, the project is ready. If you run npm start you can open up the dev server. And if you make an edit to the file you can see it live reload.
 
 And when you are ready to deploy you would just run `npm build` and we get the `app.js` file written to disk.
-
-
