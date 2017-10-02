@@ -20,7 +20,7 @@ Install everything we need in one go.
 npm install react react-dom webpack webpack-dev-server typescript @types/react @types/react-dom ts-loader -S
 ```
 
-now we will just go ahead and open an IDE that supports typescript
+now we will just go ahead and open some IDE that supports typescript
 
 ```bash
 alm -o
@@ -37,16 +37,15 @@ Add a webpack.config.js
 
 ```js
 module.exports = {
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   entry: {
-    main: './src/app/main.tsx'
+    main: './src/app.tsx'
   },
   output: {
-      path: './public',
-      filename: 'build/[name].js'
+      filename: 'build/app.js'
   },
   resolve: {
-    extensions: ['', '.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js']
   },
   module: {
       loaders: [
@@ -61,7 +60,7 @@ I'll create a public/index.html
 <html>
     <body>
         <div id="root"></div>
-        <script src="./build/main.js"></script>
+        <script src="./build/app.js"></script>
     </body>
 </html>
 ```
@@ -92,6 +91,6 @@ ReactDOM.render(<div>Hello world</div>, document.getElementById('root'));
 
 That's it, the project is ready. If you run npm start you can open up the dev server. And if you make an edit to the file you can see it live reload.
 
-And when you are ready to deploy you would just run `npm build`.
+And when you are ready to deploy you would just run `npm build` and we get the `app.js` file written to disk.
 
 
