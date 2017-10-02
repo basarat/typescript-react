@@ -1,2 +1,3 @@
 # IDE
 .alm/
+**/node_modules/**
