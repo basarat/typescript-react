@@ -1,6 +1,6 @@
 # Use TypeScript to develop react applications
 
-A video course on how to setup a react project with TypeScript.
+Docs (with an optional accompanying video course) on how to setup a react project with TypeScript.
 
 
 ## Lessons 
