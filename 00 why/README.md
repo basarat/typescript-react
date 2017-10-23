@@ -26,26 +26,34 @@ ReactDOM.render(
 
 Even in such a simple application we can demonstrate the great developer experience offered to react development by using TypeScript.
 
+***Delete everything after <`***
 First up is *autocomplete*.
+* It autocompletes the component name for us.
+* It also autocompletes any component attributes.
+```js
+<Hello compiler=
+```
 
-**Autocomplete**
-* Type in component.
-* Type in component attribute.
+***(Git reset file)***
+Next up is *type checking*. 
+* Misspell any component name gives us a nice error. `Hellow` (show error)
+* Misspelling any component attribute and you get an error. (compilers)
+* Forget to provide a *required* attribute you get an error. (delete compilers and show error)
+* Provide a value of the wrong type and you get a nice error (point compiler to `compiler={123}`)
 
-**Checking**
 
-* Misspell the component (Hellow)
-* Misspell an attribute (compler)
-* Invalid type for an attribute (compiler={123})
+***Git reset file***
+As developers we spend a large chunk of our time refactoring existing code. TypeScript is an ideal tool for this task.
+* TypeScript makes it easy to rename the component (Hello -> HelloPeople)
+* You can easily rename an attribute (message -> messages)
+* And as requirements change and you add new attributes, users of your components get nice errors. (add attribute count: number)
+* If you decide to change the type of an attribute, that is caught too. (message: number)
 
-**Refactoring**
+These are just some of the refactoring advantages offered by TypeScript.
 
-* Add a new attribute (message: string)
-* Change the type of an attribute (message: number)
-* Rename an attribute (message -> messages)
-* Rename the component (Hello -> HelloPeople)
+***Git reset file***
+TypeScript also enables excellent code navigation tools for your applications.
+* With one simple command I can file all the references to the Hello component (2 places)
+* Similarly I can easily see how any of the props for the component are used (`compiler` 3 places)
 
-**Usages**
-
-* The component (2 places)
-* The attribute (3 places)
+TypeScript really enables a whole new level of developer productivity for React Developers and in this course we will continue to explore this TypeScript - React combination.
