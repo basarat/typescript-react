@@ -1,0 +1,22 @@
+{
+  "name": "demo",
+  "version": "0.0.0",
+  "description": "demo",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/basarat/typescript-react.git"
+  },
+  "dependencies": {
+    "@types/react": "16.0.18",
+    "@types/react-dom": "16.0.2",
+    "react": "16.0.0",
+    "react-dom": "16.0.0",
+    "ts-loader": "3.0.5",
+    "typescript": "2.5.3",
+    "webpack": "3.8.1",
+    "webpack-dev-server": "2.9.3"
+  }
+}
