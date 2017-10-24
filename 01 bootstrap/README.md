@@ -35,7 +35,7 @@ alm -o
 "start": "webpack-dev-server ./webpack.config.js --content-base ./public"
 ```
 
-* Next we add a webpack.config.js. 
+* Next we add a `webpack.config.js`. 
 * First we specify source maps so we can debug `TypeScript` files in our browser.
 * Then we specify an application entry point
 * Up next is the output location for our built bundle.
@@ -60,22 +60,29 @@ module.exports = {
 }
 ```
 
-Next we create a basic html file in the public/index.html
+Next we create a basic html file in the `public/index.html`
 * The file simply contains a root div where we will render our React application and then loads the bundle generated from webpack.
 ```html
 <html>
-    <body>
-        <div id="root"></div>
-        <script src="./build/app.js"></script>
-    </body>
+  <body>
+      <div id="root"></div>
+      <script src="./build/app.js"></script>
+  </body>
 </html>
 ```
 
-Add a tsconfig.json
+Add a `tsconfig.json` to setup the TypeScript compiler options 
+* We enable sourcemaps so we can debug TypeScript files in the browser.
+* We will be transpiling our code to standard nodejs style commonjs modules.
+* We want our generated JavaScript to be compatible with ES5
+* Finally for JSX code we want TypeScript to transpile into `React.createElement` calls.
+* Our source code will be present in the `src` folder.
+* We want `compileOnSave` to be false as the compilation will be done by webpack.
 
 ```json
 {
   "compilerOptions": {
+    "sourceMap": true,
     "module": "commonjs",
     "target": "es5",
     "jsx": "react"
@@ -86,11 +93,13 @@ Add a tsconfig.json
   "compileOnSave": false
 }
 ```
+
 I'll go ahead and select this newly created tsconfig.json as the typescript configuration file for my IDE.
 
-* Now I'll create our src/app.tsx file
-* We simply import react and react-dom 
-* And finally use ReactDOM to render hello world to our root div.
+* Now I'll create our `src/app.tsx` file.
+* We simply import `react` and `react-dom`.
+* And finally use `ReactDOM` to render hello world to our root div.
+
 ```js
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
@@ -101,6 +110,7 @@ ReactDOM.render(<div>Hello world</div>, document.getElementById('root'));
 That's it, the project is ready.
 
 * If we run `npm start` it will start up the dev server. 
-* If we make an edit to the file (`hello world again`)you can see it live reload.
+* If we open `localhost:8080` we can see our application running.
+* If we make an edit to the file (`hello world again`) you can see it live reload.
 
 And when you are ready to deploy you would just run `npm build` and we get the `app.js` file written to disk.
