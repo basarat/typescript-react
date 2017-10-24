@@ -24,7 +24,56 @@ import * as ReactDOM from 'react-dom';
 const App = () => <div>Hello world</div>;
 
 ReactDOM.render(
-  <App/>,
+  <App />,
+  document.getElementById('root')
+);
+```
+
+Of course one big advantage of components is that you get to use props to change the component behavior.
+
+* e.g we can take the message as a prop by adding it to the function arguments, using it inside the function body.
+* And now we get to pass in the message as a property to the component.
+
+```js
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+
+const App = ({ message }) => <div>{message}</div>;
+
+ReactDOM.render(
+  <App message="Hello world" />,
+  document.getElementById('root')
+);
+```
+***Save and show the reload***
+* You can see that it still behaves the ssame but now we can control the rendering with the passed in prop.
+
+```js
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+
+const App = ({ message }) => <div>{message}</div>;
+
+ReactDOM.render(
+  <App message="Hello, is it me you are looking for?" />,
+  document.getElementById('root')
+);
+```
+***Save and show the reload***
+
+***Select the `App` function***
+* Although simple functions work fine for simple stateless components, if you want to create high quality TypeScript components, it is recommended that you annotate your component as a `React.SFC` 
+* This interface takes a generic argument that allows you to easily provide type annotations for the component props.
+
+```js
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+
+const App: React.SFC<{ message: string }>
+  = ({ message }) => <div>{message}</div>;
+
+ReactDOM.render(
+  <App message="Hello world!" />,
   document.getElementById('root')
 );
 ```
