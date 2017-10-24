@@ -96,6 +96,10 @@ Add a `tsconfig.json` to setup the TypeScript compiler options
 
 I'll go ahead and select this newly created tsconfig.json as the typescript configuration file for my IDE.
 
+* That's it for the configuration in terms of `package.json` for project creation, `tsconfig.json` for TypeScript and `webpack` for compiling our code.
+
+* Now lets write some demo code. 
+
 * Now I'll create our `src/app.tsx` file.
 * We simply import `react` and `react-dom`.
 * And finally use `ReactDOM` to render hello world to our root div.
@@ -106,8 +110,6 @@ import * as ReactDOM from 'react-dom';
 
 ReactDOM.render(<div>Hello world</div>, document.getElementById('root'));
 ```
-
-That's it, the project is ready.
 
 * If we run `npm start` it will start up the dev server. 
 * If we open `localhost:8080` we can see our application running.
