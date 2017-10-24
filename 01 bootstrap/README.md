@@ -74,7 +74,7 @@ Next we create a basic html file in the `public/index.html`
 Add a `tsconfig.json` to setup the TypeScript compiler options 
 * We enable sourcemaps so we can debug TypeScript files in the browser.
 * We will be transpiling our code to standard nodejs style commonjs modules.
-* We want our generated JavaScript to be compatible with ES5
+* We want our generated JavaScript to be compatible with ES5.
 * Finally for JSX code we want TypeScript to transpile into `React.createElement` calls.
 * Our source code will be present in the `src` folder.
 * We want `compileOnSave` to be false as the compilation will be done by webpack.
