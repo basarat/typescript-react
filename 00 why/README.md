@@ -1,9 +1,9 @@
 # Why use TypeScript with React
 > You get a much better developer experience when using TypeScript with React compared to many other frameworks that work off of simple template strings because JSX is embedded within TypeScript.
 
-> In this lesson we give a demonstration of the some of the powerful refactorings and type checks enabled by using TypeScript with React. 
+> In this lesson we give a demonstration of the some of the powerful refactorings and type checks enabled by using TypeScript with React.
 
-Here we have a simple basic ReactJS application. 
+Here we have a basic ReactJS application.
 
 ```js
 import * as React from 'react';
@@ -35,17 +35,17 @@ First up is *autocomplete*.
 ```
 
 ***(Git reset file)***
-Next up is *type checking*. 
+Next up is *type checking*.
 * Misspell any component name gives us a nice error. `Hellow` (show error)
 * Misspelling any component attribute and you get an error. (compilers)
-* Forget to provide a *required* attribute you get an error. (delete compilers and show error)
-* Provide a value of the wrong type and you get a nice error (point compiler to `compiler={123}`)
+* Forget to provide a *required* attribute you get an error. (delete framework and show error)
+* Provide a value of the wrong type and you get a nice error (point compiler to `framework={123}`)
 
 
 ***Git reset file***
 As developers we spend a large chunk of our time refactoring existing code. TypeScript is an ideal tool for this task.
-* TypeScript makes it easy to rename the component (Hello -> HelloPeople)
-* You can easily rename an attribute (message -> messages)
+* TypeScript makes it easy to rename the component (Hello -> HelloWorld). And this is not a dumb string search and replace, this is true semantic rename.
+* You can easily rename an attribute (compiler -> name)
 * And as requirements change and you add new attributes, users of your components get nice errors. (add attribute count: number)
 * If you decide to change the type of an attribute, that is caught too. (message: number)
 
