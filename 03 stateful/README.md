@@ -4,8 +4,8 @@
 
 > This lessons shows these generic parameters and React.Component in action.
 
-Here I have a simple application that renders the div Hello World to the dom using React and React Dom.
-```
+Here I have a simple application that renders the div `Hello world` to the dom using React and React Dom.
+```js
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
@@ -15,17 +15,17 @@ ReactDOM.render(
 );
 ```
 
-We can easily move this div into a stateful component called <App/> by extending from React.Component and returning the div from the render function
+We can easily move this div into a stateful component called `<App/>` by creating a class that extends from `React.Component` and returning the div from the render function.
 
-```
+```js
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-class App extends React.Component<{},{}> {
+class App extends React.Component {
   render() {
     return (
       <div>Hello world</div>
-    )
+    );
   }
 }
 
@@ -35,36 +35,41 @@ ReactDOM.render(
 );
 ```
 
-Of course one big advantage of components is that you get to use props to change the component behaviour. React.Component takes two generic arguments. The First one is the prop. 
+Of course one big advantage of components is that you get to use props to change the component behaviour. 
 
-- We can go ahead and add a prop `message` of type string. 
-- We can use this prop in our render method. 
+* React.Component takes Props as its first generic argument. 
+* Lets go ahead and add a prop with a member `message` of type string. 
+* We can use this prop in our render method. 
 
-And you can see TypeScript already complaining on the misusage of the component, it is saying that the component expects a prop message to be passed in, so lets go head and pass it in 
+***Show the error in `App`***
+* As you can see TypeScript already complaining about the component being used without providing the required message prop.
+* Lets fix this error and by passing in a message. 
 
-```
+```js
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 class App extends React.Component<{
-  message: string,
-}, {}> {
+  message: string
+}> {
   render() {
     return (
       <div>{this.props.message}</div>
-    )
+    );
   }
 }
 
 ReactDOM.render(
-  <App message="Hello world prop" />,
+  <App message="Hello again" />,
   document.getElementById('root')
 );
 ```
-And you can see that now the div contents are driven by prop. 
 
-Components that extend from `React.Component` are called stateful cause they can have their own internal state. 
-- The second generic that React.Component takes is actually the type of this State. - Lets go ahead and setup our state have a count of type number. 
+And you can see that now the div contents are driven by the prop. 
+
+Components that extend from `React.Component` are called stateful because they can have their own internal state. 
+
+* The second generic that React.Component takes is actually the type of this State. - Lets go ahead and setup our state have a count of type number. 
 - We can initialize the state in our constructor. 
 - When adding a constructor to a react component, you get passed the initial props which you simply pass to the super React.Component class. 
 - Now we can setup the initial state, which thanks to our generic setup is rich with autocomplete.
