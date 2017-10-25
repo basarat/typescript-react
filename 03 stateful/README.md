@@ -144,3 +144,40 @@ ReactDOM.render(
 
 ***Click the div in the demo***
 * Now if we go ahead and click the div you can see that the state changes correctly causing the component to re-render with the new state.
+
+* One final note is that we can easilly move out inline type definitions for the Props and State into appropriately named types.
+
+```js
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+
+type AppProps = {
+  message: string,
+}
+type AppState = {
+  count: number,
+}
+class App extends React.Component<AppProps, AppState> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    }
+  }
+  render() {
+    return (
+      <div onClick={this.increment}>{this.props.message} {this.state.count}</div>
+    );
+  }
+  increment = () => {
+    this.setState({
+      count: this.state.count + 1
+    });
+  }
+}
+
+ReactDOM.render(
+  <App message="Hello world prop" />,
+  document.getElementById('root')
+);
+```
