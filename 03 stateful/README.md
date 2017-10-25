@@ -106,7 +106,8 @@ ReactDOM.render(
 
 The key reason for having local state in a component is ofcourse that you get to manage it inside the component, 
 
-* For example you can add an `increment` function that uses react.component's `setState` to increment the count member of the state 
+* For example, we can call an increment member function whenever the root div is clicked. 
+* Within the `increment` function we simply use react.component's `setState` to increment the count member of the state.
 
 ```js
 import * as React from 'react';
@@ -141,42 +142,7 @@ ReactDOM.render(
 );
 ```
 
-We can then call this function whenever the root div is clicked. 
-
-```
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-
-class App extends React.Component<{
-  message: string,
-}, {
-    count: number,
-  }> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: 0
-    }
-  }
-  render() {
-    return (
-      <div onClick={this.increment}>
-        {this.props.message} {this.state.count}</div>
-    )
-  }
-  increment = () => {
-    this.setState({
-      count: this.state.count + 1
-    })
-  }
-}
-
-ReactDOM.render(
-  <App message="Hello world prop" />,
-  document.getElementById('root')
-);
-```
-
-Now if we go ahead and click the div you can see that the state changes correctly causing the component to re-render with the new state.
+***Click the div in the demo***
+* Now if we go ahead and click the div you can see that the state changes correctly causing the component to re-render with the new state.
 
 Lets say we want to add another property `foo` to the state. As soon as we do that we get an error for calls to `setState` that do not pass in the property `foo`. We can fix that by marking foo as optional. It is conventional to mark all state members as optional so that setState can be called with just the members you want changed.
