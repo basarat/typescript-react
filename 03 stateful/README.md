@@ -106,9 +106,9 @@ ReactDOM.render(
 
 The key reason for having local state in a component is ofcourse that you get to manage it inside the component, 
 
-* For example you can add an increment function that uses react.component's setState to increment the count member of the state 
+* For example you can add an `increment` function that uses react.component's `setState` to increment the count member of the state 
 
-```
+```js
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
@@ -125,13 +125,13 @@ class App extends React.Component<{
   }
   render() {
     return (
-      <div>{this.props.message} {this.state.count}</div>
-    )
+      <div onClick={this.increment}>{this.props.message} {this.state.count}</div>
+    );
   }
   increment = () => {
     this.setState({
       count: this.state.count + 1
-    })
+    });
   }
 }
 
