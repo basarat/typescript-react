@@ -1,0 +1,10 @@
+{
+  "name": "bootstrap",
+  "version": "0.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/basarat/typescript-react.git"
+  },
+  "scripts": {}
+}
