@@ -43,7 +43,7 @@ Next up is *type checking*.
 
 
 ***Git reset file***
-As developers we spend a large chunk of our time refactoring existing code. TypeScript is an ideal tool for this task.
+As developers we spend a large chunk of our time refactoring existing code. TypeScript is an ideal tool for refactoring.
 * TypeScript makes it easy to rename the component (Hello -> HelloWorld). And this is not a dumb string search and replace, this is true semantic rename.
 * You can easily rename an attribute (compiler -> name)
 * And as requirements change and you add new attributes, users of your components get nice errors. (add attribute count: number)
@@ -56,4 +56,4 @@ TypeScript also enables excellent code navigation tools for your applications.
 * With one simple command I can file all the references to the Hello component (2 places)
 * Similarly I can easily see how any of the props for the component are used (`compiler` 3 places)
 
-TypeScript really enables a whole new level of developer productivity for React Developers and in this course we will continue to explore this TypeScript - React combination.
+TypeScript really enables a whole new level of developer productivity for React Developers and in this course we will explore this simple TypeScript - React combination.
