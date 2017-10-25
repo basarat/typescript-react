@@ -1,8 +1,7 @@
 # Publish a React component with TypeScript
-> In this lesson we look at the some simple best practices for creating high quality React components with TypeScript.
+> In this lesson we look at how to create a React Component package using TypeScript. Pro Tip: It is very similiar to creating any other TypeScript Node package, but its always good to see it in practice.
 
 NPM linking voodoo https://medium.com/@BrodaNoel/how-to-create-a-react-component-and-publish-it-in-npm-668ad7d363ce 
-
 Lets create a new node project, lets call it `Fancy`.
 
 
