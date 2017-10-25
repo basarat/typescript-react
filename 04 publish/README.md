@@ -5,13 +5,39 @@ NPM linking voodoo https://medium.com/@BrodaNoel/how-to-create-a-react-component
 Lets create a new node project, lets call it `Fancy`.
 
 
+* TODO: npm install `typescript` / `react` / `@types/react` to peer deps? Check blueprint. The article does `peerDependencies` manually.
+* Next we create a simple tsconfig file. Within the file we specify the `compilerOptions` for   `sourcemap` / `jsx` / `target` / `declaration` and an output directory for the compiled JavaScript `outDir`.
+```json
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "jsx": "react",
+    "target": "es5",
+    "declaration": true,
+    "outDir": "lib"
+  },
+  "include": [
+    "src"
+  ]
+}
+```
+
+* Next we simply create our root `src/index.tsx` file.
+* Within the file we bring in React and export a simple `Fancy` component.
 ```js
+import * as React from 'react';
+
 export const Fancy: React.SFC<{text:string}> = (props) => <h1>{props.text}</h1>;
 ```
-* TODO: npm install `react` / `@types/react` to peer deps
-* TODO: setup tsconfig with `jsx` / `sourcemap` / `outDir`
-* TODO: setup package.json with `types`.
-* TODO: setup package.json build script
+
+* Just like any other standard TypeSript node project, we setup package.json with the path to our output `js` files along with `types` for the output `.d.ts` TypeScript declaration files.
+
+```
+"main": "lib",
+"types": "lib",
+```
+* We also setup a build script which simply invokes `tsc` on our `tsconfig.json`
+
 
 * At this point if you wanted you could jump `npm publish` this library, but we will just use it locally by running `npm link`.
 
