@@ -144,5 +144,3 @@ ReactDOM.render(
 
 ***Click the div in the demo***
 * Now if we go ahead and click the div you can see that the state changes correctly causing the component to re-render with the new state.
-
-Lets say we want to add another property `foo` to the state. As soon as we do that we get an error for calls to `setState` that do not pass in the property `foo`. We can fix that by marking foo as optional. It is conventional to mark all state members as optional so that setState can be called with just the members you want changed.
