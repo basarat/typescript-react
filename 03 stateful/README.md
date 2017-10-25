@@ -69,13 +69,14 @@ And you can see that now the div contents are driven by the prop.
 
 Components that extend from `React.Component` are called stateful because they can have their own internal state. 
 
-* The second generic that React.Component takes is actually the type of this State. - Lets go ahead and setup our state have a count of type number. 
-- We can initialize the state in our constructor. 
-- When adding a constructor to a react component, you get passed the initial props which you simply pass to the super React.Component class. 
-- Now we can setup the initial state, which thanks to our generic setup is rich with autocomplete.
-- Finally we can use this state in other places like the render method.
+* React.Component takes as second generic argument which specifies the type of the State. 
+* Lets go ahead and setup our state have a count of type number. 
+* We can initialize the state in our constructor. 
+  * When adding a constructor to a react component, you get passed the initial props which you simply pass to the super React.Component class. 
+  * Now we can setup the initial state.
+* Finally we can use this state in other places like the render method.
 
-```
+```js
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
@@ -93,7 +94,7 @@ class App extends React.Component<{
   render() {
     return (
       <div>{this.props.message} {this.state.count}</div>
-    )
+    );
   }
 }
 
@@ -103,7 +104,9 @@ ReactDOM.render(
 );
 ```
 
-The key reason for having local state in a component is ofcourse that you get to manage it inside the component, for example you can add an increment function that uses react.component's setState to increment the count member of the state 
+The key reason for having local state in a component is ofcourse that you get to manage it inside the component, 
+
+* For example you can add an increment function that uses react.component's setState to increment the count member of the state 
 
 ```
 import * as React from 'react';
