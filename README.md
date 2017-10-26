@@ -13,3 +13,8 @@ Docs / Code to an accompanying video course on how to setup a react project with
 
 # TODO
 * Delete / deprecate these videos : https://egghead.io/playlists/typescript-with-react-d922273e
+
+## Future
+From here : https://basarat.gitbooks.io/typescript/content/docs/jsx/tsx.html
+* How to accept a component as a prop
+
