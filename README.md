@@ -6,7 +6,7 @@ Docs / Code to an accompanying video course on how to setup a react project with
 ## Lessons 
 
 * [Why?](https://egghead.io/lessons/why-use-typescript-with-react)
-* [Bootstrap]()
+* [Bootstrap](https://egghead.io/lessons/bootstrap-a-typescript-react-project)
 * [SFC]()
 * [Stateful]()
 * [Publish]()
