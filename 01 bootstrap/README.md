@@ -35,11 +35,11 @@ alm -o
 "start": "webpack-dev-server ./webpack.config.js --content-base ./public"
 ```
 
-* Next we add a `webpack.config.js`. 
+* Next we add a `webpack.config.js`.
 * First we specify source maps so we can debug `TypeScript` files in our browser.
 * Then we specify an application entry point
 * Up next is the output location for our built bundle.
-* Next we tell Webpack to support `.ts` and `.tsx` file extensions along with the original `.js` extension. 
+* Next we tell Webpack to support `.ts` and `.tsx` file extensions along with the original `.js` extension.
 * Finally we tell webpack to use `ts-loader` to handle `.ts` and `.tsx` files.
 
 ```js
@@ -71,7 +71,7 @@ Next we create a basic html file in the `public/index.html`
 </html>
 ```
 
-Add a `tsconfig.json` to setup the TypeScript compiler options 
+Add a `tsconfig.json` to setup the TypeScript compiler options
 * We enable sourcemaps so we can debug TypeScript files in the browser.
 * We will be transpiling our code to standard nodejs style commonjs modules.
 * We want our generated JavaScript to be compatible with ES5.
@@ -96,9 +96,7 @@ Add a `tsconfig.json` to setup the TypeScript compiler options
 
 I'll go ahead and select this newly created tsconfig.json as the typescript configuration file for my IDE.
 
-* That's it for the configuration in terms of `package.json` for project creation, `tsconfig.json` for TypeScript and `webpack` for compiling our code.
-
-* Now lets write some demo code. 
+* That's it for the configuration. Now lets write some demo code.
 
 * Now I'll create our `src/app.tsx` file.
 * We simply import `react` and `react-dom`.
@@ -111,8 +109,14 @@ import * as ReactDOM from 'react-dom';
 ReactDOM.render(<div>Hello world</div>, document.getElementById('root'));
 ```
 
-* If we run `npm start` it will start up the dev server. 
+* If we run `npm start` it will start up the dev server.
 * If we open `localhost:8080` we can see our application running.
 * If we make an edit to the file (`hello world again`) you can see it live reload.
 
 And when you are ready to deploy you would just run `npm build` and we get the `app.js` file written to disk.
+
+***Show these files in the file tree***
+In short the setup simply involves three simple things
+  * `package.json` for specifying our npm modules.
+  * `tsconfig.json` for TypeScript.
+  * and `webpack` for compiling and running our code.
