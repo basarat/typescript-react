@@ -46,8 +46,8 @@ Next up is *type checking*.
 As developers we spend a large chunk of our time refactoring existing code. TypeScript is an ideal tool for refactoring.
 * TypeScript makes it easy to rename the component to something that makes more sense as you understand more of your business requirements (Hello -> Better). And this is not a dumb string search and replace, this is true semantic rename.
 * You can easily rename an prop (compiler -> name)
-* And as requirements change and you add new props, users of your components get nice errors. (add prop count: number)
-* If you decide to change the type of an prop, that is caught too. (message: number)
+* And as requirements change and you add new props, users of your components get nice errors. (add prop count: number and show error, and then autocomplete to provide it)
+* If you decide to change the type of an prop, that is caught too. (count: string, count="fixed")
 
 These are just some of the refactoring advantages offered by TypeScript.
 
