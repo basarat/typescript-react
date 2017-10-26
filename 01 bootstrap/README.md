@@ -47,7 +47,8 @@ module.exports = {
   devtool: 'inline-source-map',
   entry: './src/app.tsx',
   output: {
-    filename: './build/app.js'
+    path: __dirname + '/public',
+    filename: 'build/app.js'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js']
@@ -58,6 +59,7 @@ module.exports = {
     ]
   }
 }
+
 ```
 
 Next we create a basic html file in the `public/index.html`
@@ -65,10 +67,11 @@ Next we create a basic html file in the `public/index.html`
 ```html
 <html>
   <body>
-      <div id="root"></div>
-      <script src="./build/app.js"></script>
+    <div id="root"></div>
+    <script src="./build/app.js"></script>
   </body>
 </html>
+
 ```
 
 Add a `tsconfig.json` to setup the TypeScript compiler options
@@ -92,6 +95,7 @@ Add a `tsconfig.json` to setup the TypeScript compiler options
   ],
   "compileOnSave": false
 }
+
 ```
 
 I'll go ahead and select this newly created tsconfig.json as the typescript configuration file for my IDE.
@@ -107,16 +111,17 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 ReactDOM.render(<div>Hello world</div>, document.getElementById('root'));
+
 ```
 
 * If we run `npm start` it will start up the dev server.
 * If we open `localhost:8080` we can see our application running.
 * If we make an edit to the file (`hello world again`) you can see it live reload.
 
-And when you are ready to deploy you would just run `npm build` and we get the `app.js` file written to disk.
+And when you are ready to deploy you would just run `npm build` and we get the `app.js` file written to disk. If we wanted we could now ship the whole `public` folder to some hosted service provided.
 
 ***Show these files in the file tree***
-In short the setup simply involves three simple things
+To recap, the setup simply involves three simple things
   * `package.json` for specifying our npm modules.
   * `tsconfig.json` for TypeScript.
-  * and `webpack` for compiling and running our code.
+  * and `webpack config` for compiling and running our code in the browser.
