@@ -1,9 +1,9 @@
 # Why use TypeScript with React
-> You get a much better developer experience when using TypeScript with React compared to many other frameworks that work off of simple template strings because JSX is embedded within TypeScript.
+> You get excellent developer experience when using TypeScript with React. This is better when compared to many other frameworks that work off of simple template strings because JSX is embedded within TypeScript.
 
 > In this lesson we give a demonstration of the some of the powerful refactorings and type checks enabled by using TypeScript with React.
 
-Here we have a basic ReactJS application.
+Here we have a basic ReactJS application, and even in such a simple application we can demonstrate a bit of the great developer experience offered to react development by using TypeScript.
 
 ```js
 import * as React from 'react';
@@ -24,11 +24,9 @@ ReactDOM.render(
 );
 ```
 
-Even in such a simple application we can demonstrate a bit of the great developer experience offered to react development by using TypeScript.
-
 ***Delete everything after <`***
 First up is *autocomplete*.
-* It autocompletes the component name for us.
+* TypeScript suggests and autocompletes the component name for us.
 * It also autocompletes any component props.
 ```js
 <Hello compiler=
@@ -36,18 +34,19 @@ First up is *autocomplete*.
 
 ***(Git reset file)***
 Next up is *type checking*.
-* Misspell any component name gives us a nice error. `Hellow` (show error)
-* Misspelling any component prop and you get an error. (compilers)
+* Misspell any component name and TypeScript gives us a nice error. `Hellow` (show error)
+* Misspelling any component prop also gives you an immediate error. (compilers)
 * Forget to provide a *required* prop you get an error. (delete framework and show error)
-* Provide a value of the wrong type and you get a nice error (point compiler to `framework={123}`)
+* Provide a value of the wrong type by mistake and you get a nice error (point compiler to `framework={123}`)
 
+With this active compile time error analysis, you get a lot less runtime issues in your codebase.
 
 ***Git reset file***
 As developers we spend a large chunk of our time refactoring existing code. TypeScript is an ideal tool for refactoring.
 * TypeScript makes it easy to rename the component to something that makes more sense as you understand more of your business requirements (Hello -> Better). And this is not a dumb string search and replace, this is true semantic rename.
-* You can easily rename an prop (compiler -> name)
+* You can just as easily rename a prop (compiler -> name)
 * And as requirements change and you add new props, users of your components get nice errors. (add prop count: number and show error, and then autocomplete to provide it)
-* If you decide to change the type of an prop, that is caught too. (count: string, count="fixed")
+* Later on, if you decide that you need change the type of an prop, that is pointed out to your component users as well thanks to TypeScript. (count: string, count="fixed")
 
 These are just some of the refactoring advantages offered by TypeScript.
 
