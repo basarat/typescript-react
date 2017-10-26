@@ -5,7 +5,14 @@ NPM linking voodoo https://medium.com/@BrodaNoel/how-to-create-a-react-component
 Lets create a new node project, lets call it `Fancy`.
 
 
-* TODO: npm install `typescript` / `react` / `@types/react` to peer deps? Check blueprint. The article does `peerDependencies` manually.
+* `npm install typescript react @types/react -D` to all these packages as devDependencies.
+* Next we simply specify that our package users will need to provide their own versions of `react` and `react-dom` by adding them to our `peerDependencies`
+```js
+  "peerDependencies": {
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0"
+  },
+```
 * Next we create a simple tsconfig file. Within the file we specify the `compilerOptions` for   `sourcemap` / `jsx` / `target` / `declaration` and an output directory for the compiled JavaScript `outDir`.
 ```json
 {
