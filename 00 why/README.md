@@ -53,7 +53,7 @@ These are just some of the refactoring advantages offered by TypeScript.
 
 ***Git reset file***
 TypeScript also enables excellent code navigation tools for your applications.
-* With one simple command I can file all the references to the Hello component (2 places)
-* Similarly I can easily see how any of the props for the component are used (`compiler` 3 places)
+* With one simple command I can find all the references to the Hello component (show 2 places)
+* Similarly I can easily see how any of the props for the component are used (`compiler` show 3 places)
 
 TypeScript really enables a whole new level of developer productivity for React Developers and in this course we will explore this simple TypeScript - React combination.
