@@ -2,6 +2,7 @@
 > Setup a TypeScript + React project from scratch using webpack. Learn the reason behind every line involved in the configuration allowing you to customize it at will in the future.
 
 We start of with a bare bones package.json file
+`cat package.json`
 ```json
 {
   "name": "bootstrap",
@@ -16,19 +17,20 @@ We start of with a bare bones package.json file
 ```
 
 Install everything we need in one go.
-* react, react-dom, webpack, webpack-dev-server along with TypeScript, the types for react and react-dom and ts-loader for webpack
+* General react modules like react, react-dom, webpack, webpack-dev-server along with TypeScript and TypeScript specific things, like the types for react and react-dom and ts-loader for webpack
 ```bash
 npm install react react-dom webpack webpack-dev-server typescript @types/react @types/react-dom ts-loader
 ```
 
-now we will just go ahead and open some IDE that supports typescript
+Next we just go ahead and open some IDE that supports typescript like vscode or alm.
 
 ```bash
 alm -o
 ```
 
-* We add a build script to run webpack against our config.
-* We also add a start script to to run the dev server for live development
+* Lets kick off by wrapping up all modifications needed for `package.json` by simply adding two script targets.
+  * We add a build script which just invokes webpack against a given webpack.config.js.
+  * We also add a start script, which runs the webpack dev server for live application development and serves up the public folder.
 
 ```json
 "build": "webpack ./webpack.config.js",
@@ -40,7 +42,7 @@ alm -o
 * Then we specify an application entry point
 * Up next is the output location for our built bundle.
 * Next we tell Webpack to support `.ts` and `.tsx` file extensions along with the original `.js` extension.
-* Finally we tell webpack to use `ts-loader` to handle `.ts` and `.tsx` files.
+* Finally we tell webpack that for `.ts` and `.tsx` files, it should use `ts-loader`.
 
 ```js
 module.exports = {
@@ -80,7 +82,7 @@ Add a `tsconfig.json` to setup the TypeScript compiler options
 * We want our generated JavaScript to be compatible with ES5.
 * Finally for JSX code we want TypeScript to transpile into `React.createElement` calls.
 * Our source code will be present in the `src` folder.
-* We want `compileOnSave` to be false as the compilation will be done by webpack.
+* And we disable TypeScript's `compileOnSave` as that will be handled by webpack.
 
 ```json
 {
@@ -114,11 +116,11 @@ ReactDOM.render(<div>Hello world</div>, document.getElementById('root'));
 
 ```
 
-* If we run `npm start` it will start up the dev server.
-* If we open `localhost:8080` we can see our application running.
-* If we make an edit to the file (`hello world again`) you can see it live reload.
+* If we run `npm start` it will start up the wepack dev server. It will serve the `public` folder up at `localhost:8080`
+* If we open that url, we can see our application running.
+* If we make an edit to the file (`hello world again`), webpack will will transpile it on the fly and reload the browser automatically.
 
-And when you are ready to deploy you would just run `npm build` and we get the `app.js` file written to disk. If we wanted we could now ship the whole `public` folder to some hosted service provided.
+Now, when you are ready to deploy your application, you can execute `npm run build`. This time webpack will compile our code and write the `app.js` file to disk. If we wanted we could ship the whole `public` folder to some hosting service provider as it contains our built file along with `index.html`.
 
 ***Show these files in the file tree***
 To recap, the setup simply involves three simple things
