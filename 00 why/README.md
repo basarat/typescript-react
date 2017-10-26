@@ -29,7 +29,7 @@ Even in such a simple application we can demonstrate a bit of the great develope
 ***Delete everything after <`***
 First up is *autocomplete*.
 * It autocompletes the component name for us.
-* It also autocompletes any component attributes.
+* It also autocompletes any component props.
 ```js
 <Hello compiler=
 ```
@@ -37,17 +37,17 @@ First up is *autocomplete*.
 ***(Git reset file)***
 Next up is *type checking*.
 * Misspell any component name gives us a nice error. `Hellow` (show error)
-* Misspelling any component attribute and you get an error. (compilers)
-* Forget to provide a *required* attribute you get an error. (delete framework and show error)
+* Misspelling any component prop and you get an error. (compilers)
+* Forget to provide a *required* prop you get an error. (delete framework and show error)
 * Provide a value of the wrong type and you get a nice error (point compiler to `framework={123}`)
 
 
 ***Git reset file***
 As developers we spend a large chunk of our time refactoring existing code. TypeScript is an ideal tool for refactoring.
-* TypeScript makes it easy to rename the component (Hello -> HelloWorld). And this is not a dumb string search and replace, this is true semantic rename.
-* You can easily rename an attribute (compiler -> name)
-* And as requirements change and you add new attributes, users of your components get nice errors. (add attribute count: number)
-* If you decide to change the type of an attribute, that is caught too. (message: number)
+* TypeScript makes it easy to rename the component to something that makes more sense as you understand more of your business requirements (Hello -> Better). And this is not a dumb string search and replace, this is true semantic rename.
+* You can easily rename an prop (compiler -> name)
+* And as requirements change and you add new props, users of your components get nice errors. (add prop count: number)
+* If you decide to change the type of an prop, that is caught too. (message: number)
 
 These are just some of the refactoring advantages offered by TypeScript.
 
