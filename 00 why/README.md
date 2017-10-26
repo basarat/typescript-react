@@ -24,7 +24,7 @@ ReactDOM.render(
 );
 ```
 
-Even in such a simple application we can demonstrate the great developer experience offered to react development by using TypeScript.
+Even in such a simple application we can demonstrate a bit of the great developer experience offered to react development by using TypeScript.
 
 ***Delete everything after <`***
 First up is *autocomplete*.
