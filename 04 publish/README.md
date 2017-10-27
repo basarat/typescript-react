@@ -70,12 +70,28 @@ export const Fancy: React.SFC<{text:string}> = (props) => <h1>{props.text}</h1>;
 npm run build
 ```
 
-* At this point if you wanted you could jump `npm publish` this library, but we will just use it locally by running `npm link`.
+* At this point if you wanted you could run `npm publish` to push this library to NPM, but we will just use it locally by running `npm link`.
 
-
-* Now lets jump back to our good old hello world application. 
+* Now lets jump back to our good old hello world react application. 
+```
+cd ../use
+```
 * If we had published our package we could use it by `npm install`. Since we only linked it locally we can bring it in by running `npm link fancy`.
-* We can now use the component in our main application. Ofcouse since the package was written with TypeScript we get nice autocomplete, error checking and all the other benefits we demonstarted in the first lesson.
+```
+npm link fancy
+```
+* We can now use the component in our main application. Ofcourse since the package was written with TypeScript we get nice autocomplete, error checking and all the other benefits we demonstarted in the first lesson.
+
+```js
+import { Fancy } from 'fancy';
+
+ReactDOM.render(
+  <Fancy text="Hello world"/>,
+  document.getElementById('root')
+);
+```
+
+***Run the demo***
 * As you can see our fancy component works as expected.
 
 
