@@ -17,17 +17,12 @@ Here we have a simple bare bones `package.json` for a node module which we are g
 ```
 
 We are going to start off by installing `typescript` / `react` and the types for react as dev dependencies.  
-* `npm install typescript react @types/react -D` to all these packages as devDependencies.
-
-* Next within our `package.json` we will just add a hint for our users that they need to provide their own versions of `react` and `react-dom` by adding them to our `peerDependencies`.
-```js
-  "peerDependencies": {
-    "react": ">=16.0.0",
-    "react-dom": ">=16.0.0"
-  },
 ```
+npm install typescript react @types/react -D
+```
+
 * Next we create a simple `tsconfig.json` file.
-* Within the file we specify the `compilerOptions` for  `sourceMap` / `target` / `jsx` / `declaration` and an output directory for the compiled JavaScript and declaration files using `outDir`.
+* Within the file we specify the `compilerOptions` for  `sourceMap` / `target` / `jsx` / `declaration` and most importantly the output directory for the compiled JavaScript and declaration files using `outDir`.
 * We also specify that our source TypeScript files will be in the `src` folder.
 ```json
 {
@@ -45,19 +40,28 @@ We are going to start off by installing `typescript` / `react` and the types for
 ```
 
 * Next we simply create our root `src/index.tsx` file.
-* Within the file we bring in React and export a simple `Fancy` component.
+* Within the file we bring in React.
+* Next we export a simple `Fancy` component that takes a text prop and renders it into an h1 tag.
 ```js
 import * as React from 'react';
 
-export const Fancy: React.SFC<{text:string}> = (props) => <h1>{props.text}</h1>;
+export const Fancy: React.SFC<{ text: string }>
+  = (props) => <h1>{props.text}</h1>;
+```
+
+* Next within our `package.json` we will just add a hint for our users that they need to provide their own versions of `react` by adding it to our `peerDependencies`.
+```js
+  "peerDependencies": {
+    "react": ">=16.0.0"
+  },
 ```
 
 * Just like any other standard TypeSript node projects, we setup package.json with the path to our output `js` files along with `types` for the output `.d.ts` TypeScript declaration files which in our case is the `outDir` we specified in our `tsconfig.json`
-
 ```
 "main": "lib",
 "types": "lib",
 ```
+
 * We also setup a build script which simply invokes `tsc` on our `tsconfig.json`
 * Ad a start script that runs build in watch mode for live development.
 ```
@@ -93,7 +97,3 @@ ReactDOM.render(
 
 ***Run the demo***
 * As you can see our fancy component works as expected.
-
-
-# Footnotes
-https://medium.com/@BrodaNoel/how-to-create-a-react-component-and-publish-it-in-npm-668ad7d363ce

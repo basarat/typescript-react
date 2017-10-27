@@ -1,3 +1,6 @@
 # IDE
 .alm/
 **/node_modules/**
+
+# Compiled output folders 
+lib
