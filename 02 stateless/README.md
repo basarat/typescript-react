@@ -4,7 +4,7 @@
 
 > But if you want to create high quality idiomatic React + TypeScript components we cover some improved patterns in this lesson.
 
-Here I have a simple application that renders the div `Hello world` to the dom using React and React Dom.
+Here I have a simple TypeScript application that renders the div `Hello world` to the dom using React and React Dom.
 ```js
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
@@ -15,7 +15,7 @@ ReactDOM.render(
 );
 ```
 
-We can easily move this div into a stateless component called <App/> by creating a function App and returning this element.
+We can easily move this div into a stateless component called <App/> by creating a function App and returning the same JSX element.
 
 ```js
 import * as React from 'react';
@@ -50,8 +50,8 @@ ReactDOM.render(
 * You can see that it still behaves the same but now we can control the rendering with the passed in prop.
 
 ***Select the `App` function***
-* Although simple functions work fine for simple stateless components, if you want to create high quality TypeScript components, it is recommended that you annotate your component as a `React.SFC`
-* This interface takes a generic argument that allows you to easily provide type annotations for the component props.
+* Although such simple functions work fine for stateless components, if you want to create high quality TypeScript components, it is recommended that you annotate such  functions as `React.SFC`
+* The `React.SFC` interface takes a generic argument that allows you to easily provide the type annotations for the component props.
 ***Hover over the message argument***
 * And you can see that the type specified flows through to the function argument.
 
@@ -68,7 +68,7 @@ ReactDOM.render(
 );
 ```
 
-* Ofcourse you can easily move out this inline prop type into an appropriately named prop if you want to.
+* Ofcourse, if you want, you can easily move out this inline prop type definition, into an appropriately named type.
 
 ```js
 import * as React from 'react';
