@@ -15,6 +15,6 @@ Docs / Code to an accompanying video course on how to setup a react project with
 * Delete / deprecate these videos : https://egghead.io/playlists/typescript-with-react-d922273e
 
 ## Future
-From here : https://basarat.gitbooks.io/typescript/content/docs/jsx/tsx.html
-* How to accept a component as a prop
-
+* TypeScript's automatic understanding of built in attributes (id, key, children)
+* The Type of react renderables `React.Node`. https://basarat.gitbooks.io/typescript/content/docs/jsx/tsx.html
+* Accepting components of a particular type, aka, How to accept a component as a prop https://basarat.gitbooks.io/typescript/content/docs/jsx/tsx.html
