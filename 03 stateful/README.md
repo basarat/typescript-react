@@ -35,15 +35,15 @@ ReactDOM.render(
 );
 ```
 
-Of course one big advantage of components is that you get to use props to change the component behaviour. 
+Of course one big advantage of components is that you get to use props to change the component behaviour.
 
-* React.Component takes Props as its first generic argument. 
-* Lets go ahead and add a prop with a member `message` of type string. 
-* We can use this prop in our render method. 
+* React.Component takes Props as its first generic argument.
+* Lets go ahead and add a prop with a member `message` of type string.
+* We can use this prop in our render method.
 
 ***Show the error in `App`***
 * As you can see TypeScript already complaining about the component being used without providing the required message prop.
-* Lets fix this error and by passing in a message. 
+* Lets fix this error and by passing in a new message.
 
 ```js
 import * as React from 'react';
@@ -65,14 +65,15 @@ ReactDOM.render(
 );
 ```
 
-And you can see that now the div contents are driven by the prop. 
+***Run demo***
+And you can see it works as expected.
 
-Components that extend from `React.Component` are called stateful because they can have their own internal state. 
+Components that extend from `React.Component` are called stateful because they can have their own internal state.
 
-* React.Component takes as second generic argument which specifies the type of the State. 
-* Lets go ahead and setup our state have a count of type number. 
-* We can initialize the state in our constructor. 
-  * When adding a constructor to a react component, you get passed the initial props which you simply pass to the super React.Component class. 
+* React.Component takes as second generic argument which specifies the type of the State.
+* Lets go ahead and setup our state have a count of type number.
+* We can initialize the state in our constructor.
+  * When adding a constructor to a react component, you get passed the initial props which you simply pass to the super React.Component class.
   * Now we can setup the initial state.
 * Finally we can use this state in other places like the render method.
 
@@ -99,14 +100,14 @@ class App extends React.Component<{
 }
 
 ReactDOM.render(
-  <App message="Hello world prop" />,
+  <App message="Hello again" />,
   document.getElementById('root')
 );
 ```
 
-The key reason for having local state in a component is ofcourse that you get to manage it inside the component, 
+The key reason for having local state in a component is ofcourse that you get to manage it inside the component,
 
-* For example, we can call an increment member function whenever the root div is clicked. 
+* For example, we can call an increment member function whenever the root div is clicked.
 * Within the `increment` function we simply use react.component's `setState` to increment the count member of the state.
 
 ```js
@@ -145,7 +146,7 @@ ReactDOM.render(
 ***Click the div in the demo***
 * Now if we go ahead and click the div you can see that the state changes correctly causing the component to re-render with the new state.
 
-* One final note is that we can easilly move out inline type definitions for the Props and State into appropriately named types.
+* Of course if you want, you can easily move out the inline type definitions for the Props and State into appropriately named types.
 
 ```js
 import * as React from 'react';
