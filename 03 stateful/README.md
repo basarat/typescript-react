@@ -4,7 +4,7 @@
 
 > This lessons shows these generic parameters and React.Component in action.
 
-Here I have a simple application that renders the div `Hello world` to the dom using React and React Dom.
+Here I have a simple TypeScript application that renders the div `Hello world` to the dom using React and React Dom.
 ```js
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
@@ -15,7 +15,10 @@ ReactDOM.render(
 );
 ```
 
-We can easily move this div into a stateful component called `<App/>` by creating a class that extends from `React.Component` and returning the div from the render function.
+We can easily move this div into a stateful component called `<App/>` by creating a class called `App` that extends from `React.Component`. Within the render function we return the JSX element as before.
+
+***Run demo***
+And you can see that it works as expected.
 
 ```js
 import * as React from 'react';
@@ -35,7 +38,7 @@ ReactDOM.render(
 );
 ```
 
-Of course one big advantage of components is that you get to use props to change the component behaviour.
+Of course one big advantage of components is that you get to use props to change the component behavior.
 
 * React.Component takes Props as its first generic argument.
 * Lets go ahead and add a prop with a member `message` of type string.
@@ -50,7 +53,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 class App extends React.Component<{
-  message: string
+  message: string,
 }> {
   render() {
     return (
@@ -71,11 +74,14 @@ And you can see it works as expected.
 Components that extend from `React.Component` are called stateful because they can have their own internal state.
 
 * React.Component takes as second generic argument which specifies the type of the State.
-* Lets go ahead and setup our state have a count of type number.
+* Lets go ahead and setup our state as an object with a member count of type number.
 * We can initialize the state in our constructor.
-  * When adding a constructor to a react component, you get passed the initial props which you simply pass to the super React.Component class.
+  * When adding a constructor to a react component, you get passed the initial props which we simply pass to the super React.Component class.
   * Now we can setup the initial state.
 * Finally we can use this state in other places like the render method.
+
+***Run the demo***
+* You can see the render now shows the initial value for the count.
 
 ```js
 import * as React from 'react';
@@ -105,7 +111,7 @@ ReactDOM.render(
 );
 ```
 
-The key reason for having local state in a component is ofcourse that you get to manage it inside the component,
+The key reason for having local state in a component, is that you get to manage it inside the component,
 
 * For example, we can call an increment member function whenever the root div is clicked.
 * Within the `increment` function we simply use react.component's `setState` to increment the count member of the state.
