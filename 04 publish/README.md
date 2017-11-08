@@ -1,7 +1,7 @@
 # Publish a React component with TypeScript
 > In this lesson we look at how to create a React Component package using TypeScript. Pro Tip: It is very similiar to creating any other TypeScript Node package, but its always good to see it in practice.
 
-Here we have a simple bare bones `package.json` for a node module which we are going to call `fancy`
+Here we have a simple bare bones `package.json` for a node module called 'fancy' which we are going create in this lesson.
 ***`cat package.json`***
 ```json
 {
@@ -20,6 +20,7 @@ We are going to start off by installing `typescript` / `react` and the types for
 ```
 npm install typescript react @types/react -D
 ```
+* We add these only as dev dependencies as we want people that will use our package to bring in their own versions for these libraries.
 
 * Next we create a simple `tsconfig.json` file.
 * Within the file we specify the `compilerOptions` for  `sourceMap` / `target` / `jsx` / `declaration` and most importantly the output directory for the compiled JavaScript and declaration files using `outDir`.
@@ -63,7 +64,7 @@ export const Fancy: React.SFC<{ text: string }>
 ```
 
 * We also setup a build script which simply invokes `tsc` on our `tsconfig.json`
-* Ad a start script that runs build in watch mode for live development.
+* Add a start script that runs build in watch mode for live development.
 ```
 "build": "tsc -p .",
 "start": "npm run build -- -w"
@@ -76,11 +77,11 @@ npm run build
 
 * At this point if you wanted you could run `npm publish` to push this library to NPM, but we will just use it locally by running `npm link`.
 
-* Now lets jump back to our good old hello world react application. 
+* Now lets jump back to our good old hello world react application.
 ```
 cd ../use
 ```
-* If we had published our package we could use it by `npm install`. Since we only linked it locally we can bring it in by running `npm link fancy`.
+* If we had published our package to npm we could use it by `npm install fancy` but since we only linked it locally we can bring it in by running `npm link fancy`. This `npm link` workflow is also a good tool to be aware of for local testing of packages without deploying.
 ```
 npm link fancy
 ```
