@@ -48,16 +48,18 @@ import * as React from 'react';
 
 export const Fancy: React.SFC<{ text: string }>
   = (props) => <h1>{props.text}</h1>;
+
 ```
 
-* Next within our `package.json` we will just add a hint for our users that they need to provide their own versions of `react` by adding it to our `peerDependencies`.
+* We wrap up our module by making a final set of changes in `package.json`
+* We add a hint for our users that they need to provide their own versions of `react` by adding to our `peerDependencies`.
 ```js
   "peerDependencies": {
     "react": ">=16.0.0"
   },
 ```
 
-* Just like any other standard TypeSript node projects, we setup package.json with the path to our output `js` files along with `types` for the output `.d.ts` TypeScript declaration files which in our case is the `outDir` we specified in our `tsconfig.json`
+* We setup package.json with the path to our output `js` files along with `types` for the output `.d.ts` TypeScript declaration files which in our case is the `outDir` we specified in our `tsconfig.json`
 ```
 "main": "lib",
 "types": "lib",
@@ -76,8 +78,11 @@ npm run build
 ```
 
 * At this point if you wanted you could run `npm publish` to push this library to NPM, but we will just use it locally by running `npm link`.
+```
+npm link
+```
 
-* Now lets jump back to our good old hello world react application.
+* Now lets jump back to our good old hello world react application and use this fancy package.
 ```
 cd ../use
 ```
