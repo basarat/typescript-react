@@ -9,10 +9,7 @@ Docs / Code to an accompanying video course on how to setup a react project with
 * [Bootstrap](https://egghead.io/lessons/bootstrap-a-typescript-react-project)
 * [SFC Stateless Function Components](https://egghead.io/lessons/create-stateless-react-components-using-typescript)
 * [Stateful](https://egghead.io/lessons/create-stateful-react-components-using-typescript)
-* [Publish]()
-
-# TODO
-* Delete / deprecate these videos : https://egghead.io/playlists/typescript-with-react-d922273e
+* [Publish](https://egghead.io/lessons/publish-a-react-component-with-typescript)
 
 ## Future
 * TypeScript's automatic understanding of built in attributes (id, key, children)

@@ -1,7 +1,9 @@
 # Publish a React component with TypeScript
-> In this lesson we look at how to create a React Component package using TypeScript. Pro Tip: It is very similiar to creating any other TypeScript Node package, but its always good to see it in practice.
+> In this lesson we look at how to create a React Component package using TypeScript.
 
-Here we have a simple bare bones `package.json` for a node module called 'fancy' which we are going create in this lesson.
+> Creating a React Package is very similar to creating any other TypeScript Node package and we demonstrate that here.
+
+Here we have a simple bare bones `package.json` for a node module which have named 'fancy'.
 ***`cat package.json`***
 ```json
 {
@@ -16,7 +18,7 @@ Here we have a simple bare bones `package.json` for a node module called 'fancy'
 }
 ```
 
-We are going to start off by installing `typescript` / `react` and the types for react as dev dependencies.  
+We start off by installing `typescript` / `react` and the types for react as dev dependencies.  
 ```
 npm install typescript react @types/react -D
 ```
@@ -52,7 +54,7 @@ export const Fancy: React.SFC<{ text: string }>
 ```
 
 * We wrap up our module by making a final set of changes in `package.json`
-* We add a hint for our users that they need to provide their own versions of `react` by adding to our `peerDependencies`.
+* We add a hint for our users that they need to provide their own version of `react` by adding to our `peerDependencies`.
 ```js
   "peerDependencies": {
     "react": ">=16.0.0"
@@ -72,7 +74,7 @@ export const Fancy: React.SFC<{ text: string }>
 "start": "npm run build -- -w"
 ```
 
-* Now we just run this on the console to compile our project.
+* Now lets go ahead and run build once on the console to compile our project.
 ```
 npm run build
 ```
@@ -86,11 +88,14 @@ npm link
 ```
 cd ../use
 ```
-* If we had published our package to npm we could use it by `npm install fancy` but since we only linked it locally we can bring it in by running `npm link fancy`. This `npm link` workflow is also a good tool to be aware of for local testing of packages without deploying.
+* If we had published our package to npm we could use it with `npm install fancy` but since we only linked it locally we can bring it in by running `npm link fancy`. This `npm link` workflow is also a good tool to be aware of for local testing of packages before deploying them to npm.
 ```
 npm link fancy
 ```
-* We can now use the component in our main application. Ofcourse since the package was written with TypeScript we get nice autocomplete, error checking and all the other benefits we demonstarted in the first lesson.
+
+***alm -o && Run the demo***
+* We start with a simple basic TypeScript hello world react app.
+* We now import the Fancy component into our application. Ofcourse since the Fancy package was written with TypeScript we get nice autocomplete, error checking and all the other benefits we demonstarted in the first lesson.
 
 ```js
 import { Fancy } from 'fancy';
@@ -101,5 +106,4 @@ ReactDOM.render(
 );
 ```
 
-***Run the demo***
 * As you can see our fancy component works as expected.
