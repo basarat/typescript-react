@@ -1,12 +1,8 @@
-# Test React components using Enzyme
+# Test React components and dom using Enzyme
 
-> In this lesson we test the basic functionality of a React component using Jest.
+> In this lesson we test the functionality of a React components using Jest and Ezyme.
 
-Here we have a basic react-typescript application. 
-
-***run the demo to show hello world***
-
-* We start off by installing jest, types for jest, enzyme, types for enzyme, and an adator for enzyme for our react version.
+* We start off by installing jest, types for jest, typescript preprocessor for jest, enzyme, types for enzyme, and an adator for enzyme for our react version to our example react typescript application.
 
 ```
 npm i jest @types/jest ts-jest enzyme @types/enzyme enzyme-adapter-react-16 -D
@@ -51,7 +47,6 @@ configure({ adapter: new EnzymeAdapter() });
 
 
 That is it for our jest and enzyme configuration. 
-
 
 Lets create a simple component that takes two props `labelOn` and `labelOff` and shows one of these strings based on whether an input checkbox is checked. 
 
