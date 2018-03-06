@@ -6,10 +6,10 @@ Here we have a basic react-typescript application.
 
 ***run the demo to show hello world***
 
-* We start off by installing just the dependencies for jest. 
+* We start off by installing jest, types for jest, enzyme, types for enzyme, and an adator for enzyme for our react version.
 
 ```
-npm i jest @types/jest ts-jest -D
+npm i jest @types/jest ts-jest enzyme @types/enzyme enzyme-adapter-react-16 -D
 ```
 
 We configure jest using a simple `jest.config.js` file. 
@@ -30,16 +30,32 @@ module.exports = {
     "jsx",
     "json",
     "node"
-  ]
+  ],
+  "setupTestFrameworkScriptFile": "<rootDir>/src/setupEnzyme.ts",
 }
 ```
 This file just tells jest that all our source is located in the `src` folder
 * For ts and tsx files we will be using ts-jest.
 * Jest should pickup files that end with `.test`
 * And that jest should pickup `.ts` and `.tsx` files as a part of its module lookup.
+* And a configuration file for enzyme.
 
-This is just the basic jest configuration. Lets create a simple component that takes two props `labelOn` and `labelOff` and shows one of these strings based on whether an input checkbox is checked. 
+Now in our configuraiton file `src/setupEnzyme.ts` we have some simple boiler plate to configure ezyme for react 16. 
 
+```js
+import { configure } from 'enzyme';
+import * as EnzymeAdapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new EnzymeAdapter() });
+```
+
+
+That is it for our jest and enzyme configuration. 
+
+
+Lets create a simple component that takes two props `labelOn` and `labelOff` and shows one of these strings based on whether an input checkbox is checked. 
+
+***create `checkboxWithLabel.tsx`***
 ```js
 import * as React from 'react';
 
@@ -74,11 +90,33 @@ export class CheckboxWithLabel extends React.Component<{
 
 ```
 
-We can test the `shallow` rendering of such components quite easily with `enzyme`. We install enzyme and its types from npm.
+Here is quick look at its behaviour in the dom  
+```js
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { CheckboxWithLabel } from './checkboxWithLabel';
 
+ReactDOM.render(
+  <CheckboxWithLabel labelOn="on" labelOff="off"/>,
+  document.getElementById('root')
+);
 ```
-npm i enzyme @types/enzyme enzyme-adapter-react-16 -D
+***npm start***
+The text of the checkbox changes as we click the component. Such internal state, dom based component are exactly what enzyme is designed to test. 
+
+```js
+import * as React from 'react';
+import { shallow } from 'enzyme';
+import { CheckboxWithLabel } from './checkboxWithLabel';
+
+test('CheckboxWithLabel changes the text after click', () => {
+  const checkbox = shallow(<CheckboxWithLabel labelOn="On" labelOff="Off" />);
+  expect(checkbox.text()).toEqual('Off');
+  checkbox.find('input').simulate('change');
+  expect(checkbox.text()).toEqual('On');
+});
 ```
+
 * Next we create a `checkboxWithLabel.test.tsx` test file.
 * We bring in react, shallow from enzyme, and our component
 * Our test will do a shallow rendering of the component
