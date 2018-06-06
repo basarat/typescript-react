@@ -17,36 +17,34 @@ We start of with a bare bones package.json file
 ```
 
 Install everything we need in one go.
-* General react modules like react, react-dom, webpack, webpack-dev-server along with TypeScript and TypeScript specific things, like the types for react and react-dom and ts-loader for webpack
+* General react modules like react, react-dom, webpack, webpack-cli, webpack-dev-server along with TypeScript and TypeScript specific things, like the types for react and react-dom and ts-loader for webpack
 ```bash
-npm install react react-dom webpack webpack-dev-server typescript @types/react @types/react-dom ts-loader
+npm install react react-dom webpack webpack-cli webpack-dev-server typescript @types/react @types/react-dom ts-loader
 ```
 
-Next we just go ahead and open some IDE that supports typescript like vscode or alm.
+Next we just go ahead and open some IDE that supports typescript like vscode.
 
 ```bash
-alm -o
+code .
 ```
 
 * Lets kick off by wrapping up all modifications needed for `package.json` by simply adding two script targets.
-  * We add a build script which just invokes webpack against a given webpack.config.js.
-  * We also add a start script, which runs the webpack dev server for live application development and serves up the public folder.
+  * We add a build script which just invokes webpack in production mode.
+  * We also add a start script, which runs the webpack dev server for live application development using development mode and serves up the public folder.
 
 ```json
-"build": "webpack ./webpack.config.js",
-"start": "webpack-dev-server ./webpack.config.js --content-base ./public"
+"build": "webpack -p",
+"start": "webpack-dev-server -d --content-base ./public"
 ```
 
 * Next we add a `webpack.config.js`.
-* First we specify source maps so we can debug `TypeScript` files in our browser.
-* Then we specify an application entry point
+* First we specify an application entry point
 * Up next is the output location for our built bundle.
 * Next we tell Webpack to support `.ts` and `.tsx` file extensions along with the original `.js` extension.
 * Finally we tell webpack that for `.ts` and `.tsx` files, it should use `ts-loader`.
 
 ```js
 module.exports = {
-  devtool: 'inline-source-map',
   entry: './src/app.tsx',
   output: {
     path: __dirname + '/public',
@@ -100,10 +98,7 @@ Add a `tsconfig.json` to setup the TypeScript compiler options
 
 ```
 
-I'll go ahead and select this newly created tsconfig.json as the typescript configuration file for my IDE.
-
 * That's it for the configuration. Now lets write some demo code.
-
 * Now I'll create our `src/app.tsx` file.
 * We simply import `react` and `react-dom`.
 * And finally use `ReactDOM` to render hello world to our root div.
