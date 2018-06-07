@@ -107,13 +107,16 @@ Add a `tsconfig.json` to setup the TypeScript compiler options
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-ReactDOM.render(<div>Hello world</div>, document.getElementById('root'));
+ReactDOM.render(
+    <div>Hello world</div>,
+    document.getElementById('root')
+);
 
 ```
 
 * If we run `npm start` it will start up the wepack dev server. It will serve the `public` folder up at `localhost:8080`
 * If we open that url, we can see our application running.
-* If we make an edit to the file (`hello world again`), webpack will will transpile it on the fly and reload the browser automatically.
+* If we make an edit to the file (`Hello world again`), webpack will will transpile it on the fly and reload the browser automatically.
 
 Now, when you are ready to deploy your application, you can execute `npm run build`. This time webpack will compile our code and write the `app.js` file to disk. If we wanted we could ship the whole `public` folder to some hosting service provider as it contains our built file along with `index.html`.
 
