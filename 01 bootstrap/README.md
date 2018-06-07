@@ -21,13 +21,6 @@ Install everything we need in one go.
 ```bash
 npm install react react-dom webpack webpack-cli webpack-dev-server typescript @types/react @types/react-dom ts-loader
 ```
-
-Next we just go ahead and open some IDE that supports typescript like vscode.
-
-```bash
-code .
-```
-
 * Lets kick off by wrapping up all modifications needed for `package.json` by simply adding two script targets.
   * We add a build script which just invokes webpack in production mode.
   * We also add a start script, which runs the webpack dev server for live application development using development mode and serves up the public folder.
@@ -122,6 +115,6 @@ Now, when you are ready to deploy your application, you can execute `npm run bui
 
 ***Show these files in the file tree***
 To recap, the setup simply involves three simple things
-  * `package.json` for specifying our npm modules.
-  * `tsconfig.json` for TypeScript.
-  * and `webpack config` for compiling and running our code in the browser.
+  * `package.json` for specifying our npm modules and `scripts`.
+  * `tsconfig.json` for configuring TypeScript.
+  * and `webpack.config.js` to use webpack for compiling and running our code and npm modules in the browser.
