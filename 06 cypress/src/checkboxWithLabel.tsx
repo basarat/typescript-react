@@ -18,10 +18,9 @@ export class CheckboxWithLabel extends React.Component<{
 
   render() {
     return (
-      <label>
+      <label id={this.props.id}>
         <input
           type="checkbox"
-          id={this.props.id}
           checked={this.state.isChecked}
           onChange={this.onChange}
         />
