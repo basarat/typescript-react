@@ -11,9 +11,4 @@ Docs / Code to an accompanying video course on how to setup a react project with
 * [Stateful](https://egghead.io/lessons/create-stateful-react-components-using-typescript)
 * [Publish](https://egghead.io/lessons/publish-a-react-component-with-typescript)
 * [Jest and Ezyme](https://egghead.io/lessons/react-test-react-components-and-dom-using-enzyme)
-
-## Future
-* TypeScript's automatic understanding of built in attributes (id, key, children)
-* The Type of react renderables `React.Node`. https://basarat.gitbooks.io/typescript/content/docs/jsx/tsx.html
-* Accepting components of a particular type, aka, How to accept a component as a prop https://basarat.gitbooks.io/typescript/content/docs/jsx/tsx.html
-* Using refs. e.g. `foo: HTMLDivElement` or `foo: ClassComponent`
+* [E2E with Cypress](TODO)
