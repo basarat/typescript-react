@@ -101,11 +101,48 @@ describe('happy path', () => {
   })
 })
 ```
-
 We launch the cypress IDE using `npm run cypress:open` and select this new test.
 
+***use cypress to get the id***
+Next we need to trigger a click on the input element. We can get the id quite easily using the Cypress IDE
 
-## TODO 
+
+```ts
+cy.get('#onOff')
+  .should('have.text', 'off')
+  .click()
+  .should('have.text', 'on')
+```
+* We paste in this get.
+* Next we need to add an assertion. Cypress provides assertions under the `should` command and we can use the `has.text` chain. 
+* Next we trigger a `click`
+* Finally we add another assertion to ensure the text updates as expected.
+
+* There is lots more to cypress commands and we have only scratched the surface.
 * Finally we can make our tests more deterministic by sharing some constants like the 'id' and even the texts with our tests.
 
+```ts
+export const id = 'onOff';
+export const onText = 'on';
+export const offText = 'off';
+```
+* We create a file `constants.ts` in our applicaiton. 
+* This file exports these common constants. 
+
+```ts
+import { id, onText, offText } from './constants';
+// Also use
+```
+* We use these to power our application
+
+```ts
+import { id, onText, offText } from './constants';
+```
+* And new we can use the same constants to power our test. 
+
+> This means our test continues to if someone feels like doing some like refactoring.
+
+```
+npm run cypress:run
+```
 * On the build server you can run the tests using `npm run cypress:run`. Once the test completes you even get a nice video that allows you to debug the test run should you need to.
