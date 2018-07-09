@@ -1,5 +1,6 @@
 # IDE
 .alm/
+.vscode/
 **/node_modules/**
 
 # Compiled output folders 
