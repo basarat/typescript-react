@@ -18,9 +18,9 @@ ReactDOM.render(
 ***npm start***
 Here is quick look at its behaviour in the dom. The text of the checkbox changes as we change the checked state by clicking on the component.  
 
-Lets add an E2E real browser test for this using cypress.
+> Lets add an E2E real browser test for this using cypress.
 
-```
+```bash
 mkdir e2e
 cd e2e
 npm init -y
@@ -29,32 +29,11 @@ npm install cypress webpack @cypress/webpack-preprocessor typescript ts-loader
 * We make a new directory for these e2e tests, initialize a new npm root and install `cypress` and its dependencies for writing tests in TypeScript. 
 
 ```
-{
-  "compilerOptions": {
-    "strict": true,
-    "sourceMap": true,
-    "module": "commonjs",
-    "target": "es5",
-    "lib": [
-      "dom",
-      "es6"
-    ],
-    "jsx": "react",
-    "experimentalDecorators": true
-  },
-  "compileOnSave": false
-}
-```
-
-* Lets add a seperate `tsconfig.json` file for this folder. Keeping E2E tests seperate from our project code prevents global type definition conflicts e.g with `describe` `it` etc. 
-
-```
 npx cypress open
 ```
-* Next we open the cypress IDE to let it initilize this folder with example cypress files.
+* Next we open the cypress IDE to let it initilize the cypress folder structure.
 
-
-```
+```js
 const wp = require('@cypress/webpack-preprocessor')
 module.exports = (on) => {
   const options = {
@@ -75,8 +54,30 @@ module.exports = (on) => {
   }
   on('file:preprocessor', wp(options))
 }
+
 ```
-* Finally we configure cypress `plugins/index.js` to use the TypeScript packages we installed to transpile tests on the fly.
+* We configure cypress `plugins/index.js` to use the TypeScript packages we installed to transpile tests on the fly.
+
+
+```json
+{
+  "compilerOptions": {
+    "strict": true,
+    "sourceMap": true,
+    "module": "commonjs",
+    "target": "es5",
+    "lib": [
+      "dom",
+      "es6"
+    ],
+    "jsx": "react",
+    "experimentalDecorators": true
+  },
+  "compileOnSave": false
+}
+```
+
+* Lets add a seperate `tsconfig.json` file for this folder. Keeping E2E tests seperate from our project code prevents global type definition conflicts e.g with `describe` `it` etc. 
 
 ```
  "scripts": {
@@ -85,6 +86,9 @@ module.exports = (on) => {
   },
 ```
 * Optionally we add a few script targets to essentially document how to run these test. 
+
+***Select the e2e folder***
+> That's it, we are done with the configuration. Note that at this point this e2e folder is primed to be copy pasted into any TypeScript / React Project you want to add e2e tests for.
 
 ***Expand the `/integration` folder***
 * Now lets write some tests
@@ -118,7 +122,8 @@ cy.get('#onOff')
 * Next we trigger a `click`
 * Finally we add another assertion to ensure the text updates as expected.
 
-* There is lots more to cypress commands and we have only scratched the surface.
+> There is lots more to cypress commands and we have only scratched the surface.
+
 * Finally we can make our tests more deterministic by sharing some constants like the 'id' and even the texts with our tests.
 
 ```ts
@@ -142,7 +147,16 @@ import { id, onText, offText } from './constants';
 
 > This means our test continues to if someone feels like doing some like refactoring.
 
+***Edit constants file***
+e.g. lets use capital `On` and `Off`. 
+
+***Show the running tests***
+You can see our tests still works as expected.
+
 ```
 npm run cypress:run
 ```
-* On the build server you can run the tests using `npm run cypress:run`. Once the test completes you even get a nice video that allows you to debug the test run should you need to.
+* On the build server you can execute the tests using `npm run cypress:run`. 
+
+# Post recording cleanup
+* Delete e2e folder :) 
