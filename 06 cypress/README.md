@@ -18,7 +18,7 @@ ReactDOM.render(
 ***npm start***
 Here is quick look at its behaviour in the dom. The text of the checkbox changes as we change the checked state by clicking on the component.  
 
-> Lets add an E2E real browser test for this using cypress.
+> Lets add a real browser test for this behaviour using cypress.
 
 ```bash
 mkdir e2e
@@ -31,7 +31,7 @@ npm install cypress webpack @cypress/webpack-preprocessor typescript ts-loader
 ```
 npx cypress open
 ```
-* Next we open the cypress IDE to let it initilize the cypress folder structure.
+* Next we open the cypress IDE using `cypress open`. This will initilize the cypress folder structure for us.
 
 ```js
 const wp = require('@cypress/webpack-preprocessor')
@@ -107,6 +107,8 @@ describe('happy path', () => {
 ```
 We launch the cypress IDE using `npm run cypress:open` and select this new test.
 
+* This launches the runner and the test runs.
+
 ***use cypress to get the id***
 Next we need to trigger a click on the input element. We can get the id quite easily using the Cypress IDE
 
@@ -156,7 +158,7 @@ You can see our tests still works as expected.
 ```
 npm run cypress:run
 ```
-* On the build server you can execute the tests using `npm run cypress:run`. 
+* On the build server you can execute the tests using `npm run cypress:run`. This runs the tests in a CI friendly manner without prompts and window interactions.
 
 # Post recording cleanup
 * Delete e2e folder :) 

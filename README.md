@@ -11,4 +11,4 @@ Docs / Code to an accompanying video course on how to setup a react project with
 * [Stateful](https://egghead.io/lessons/create-stateful-react-components-using-typescript)
 * [Publish](https://egghead.io/lessons/publish-a-react-component-with-typescript)
 * [Jest and Ezyme](https://egghead.io/lessons/react-test-react-components-and-dom-using-enzyme)
-* [E2E with Cypress](TODO)
+* [E2E with Cypress](https://egghead.io/lessons/react-test-react-applications-with-cypress)
