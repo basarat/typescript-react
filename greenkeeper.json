@@ -1,0 +1,16 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "00 why/package.json",
+        "01 bootstrap/package.json",
+        "02 stateless/package.json",
+        "03 stateful/package.json",
+        "04 publish/fancy/package.json",
+        "04 publish/use/package.json",
+        "05 enzyme/package.json",
+        "06 cypress/package.json"
+      ]
+    }
+  }
+}
