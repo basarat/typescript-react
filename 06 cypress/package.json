@@ -11,14 +11,14 @@
     "start": "webpack-dev-server -d --content-base ./public"
   },
   "dependencies": {
-    "@types/react": "16.4.2",
-    "@types/react-dom": "16.0.6",
-    "react": "16.4.1",
-    "react-dom": "16.4.1",
-    "ts-loader": "4.4.1",
-    "typescript": "2.9.2",
-    "webpack": "4.12.1",
-    "webpack-cli": "3.0.8",
-    "webpack-dev-server": "3.1.4"
+    "@types/react": "16.8.23",
+    "@types/react-dom": "16.8.4",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "ts-loader": "6.0.4",
+    "typescript": "3.5.3",
+    "webpack": "4.35.3",
+    "webpack-cli": "3.3.6",
+    "webpack-dev-server": "3.7.2"
   }
 }
