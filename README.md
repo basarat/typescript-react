@@ -1,5 +1,7 @@
 # Use TypeScript to develop react applications
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/basarat/typescript-react.svg)](https://greenkeeper.io/)
+
 Docs / Code to an accompanying video course on how to setup a react project with TypeScript.
 
 
