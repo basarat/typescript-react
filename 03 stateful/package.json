@@ -15,9 +15,9 @@
     "@types/react-dom": "16.0.2",
     "react": "16.0.0",
     "react-dom": "16.0.0",
-    "ts-loader": "3.0.5",
+    "ts-loader": "9.4.2",
     "typescript": "2.5.3",
-    "webpack": "3.8.1",
+    "webpack": "5.75.0",
     "webpack-dev-server": "2.9.3"
   }
 }
